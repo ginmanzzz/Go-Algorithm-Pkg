@@ -6,7 +6,7 @@ import (
 
 const inf = math.MaxInt / 2
 
-func buildGraph(edges [][3]int, n int, isDirect bool) [][]int {
+func buildGraph(edges [][]int, n int, isDirect bool) [][]int {
 	g := make([][]int, n)
 	for i := range g {
 		g[i] = make([]int, n)

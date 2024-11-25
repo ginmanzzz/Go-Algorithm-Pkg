@@ -14,3 +14,16 @@ func MaxInt(a, b int) int {
 	return b
 }
 
+func MinStr(a, b string) string {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+func MaxStr(a, b string) string {
+	if a > b {
+		return a
+	}
+	return b
+}
