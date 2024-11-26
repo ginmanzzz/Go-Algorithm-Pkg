@@ -1,29 +1,23 @@
 package algo
 
-func MinInt(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+type ComparableType interface {
+	~int | ~float64 | ~string | ~int32 | ~float32
 }
 
-func MaxInt(a, b int) int {
+func Max [T ComparableType] (a, b T) T {
 	if a > b {
 		return a
 	}
 	return b
 }
 
-func MinStr(a, b string) string {
+func Min [T ComparableType] (a, b T) T {
 	if a < b {
 		return a
 	}
 	return b
 }
 
-func MaxStr(a, b string) string {
-	if a > b {
-		return a
-	}
-	return b
+func Swap [T any] (a, b *T) {
+	*a, *b = *b, *a
 }

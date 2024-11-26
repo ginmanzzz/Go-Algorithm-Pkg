@@ -72,7 +72,7 @@ func (dijkstra *Dijkstra) PlainAll(g [][] int, k int) ([]int,bool) {
 		}
 		done[x] = true
 		for y, d := range g[x] {
-			distance[y] = MinInt(distance[y], distance[x] + d)
+			distance[y] = Min(distance[y], distance[x] + d)
 		}
 	}
 	return distance, can
