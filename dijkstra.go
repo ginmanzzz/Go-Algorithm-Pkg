@@ -6,6 +6,16 @@ import (
 
 const inf = math.MaxInt / 2
 
+type Dijkstra struct {
+	g [][]int
+}
+
+func NewDijkstra(edges [][]int, n int, isDirect bool) *Dijkstra {
+	return &Dijkstra {
+		g: buildGraph(edges, n, isDirect),
+	}
+}
+
 func buildGraph(edges [][]int, n int, isDirect bool) [][]int {
 	g := make([][]int, n)
 	for i := range g {
@@ -36,7 +46,7 @@ func buildGraph(edges [][]int, n int, isDirect bool) [][]int {
   @time:   	O(N^2)
   @space:  	O(N^2)
 */
-func PureDijkstra(g [][] int, k int) ([]int,bool) {
+func (dijkstra *Dijkstra) PlainAll(g [][] int, k int) ([]int,bool) {
 	n := len(g)
 	distance := make([]int, n)
 	for i := range distance {
@@ -66,4 +76,12 @@ func PureDijkstra(g [][] int, k int) ([]int,bool) {
 		}
 	}
 	return distance, can
+}
+
+func (dijkstra *Dijkstra) PlainE2E(g [][]int, start , end int) int {
+	distance, _ := dijkstra.PlainAll(dijkstra.g, start)
+	if distance[end] >= inf  {
+		return -1
+	}
+	return distance[end]
 }
