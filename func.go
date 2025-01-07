@@ -22,9 +22,9 @@ func Swap [T any] (a, b *T) {
 	*a, *b = *b, *a
 }
 
-func Abs [T ComparableType] (a, b T) T {
-    if a > b {
+func IntAbs (a int) int {
+    if a >= 0 {
         return a
     }
-    return b
+    return -a
 }
