@@ -21,3 +21,10 @@ func Min [T ComparableType] (a, b T) T {
 func Swap [T any] (a, b *T) {
 	*a, *b = *b, *a
 }
+
+func Abs [T ComparableType] (a, b T) T {
+    if a > b {
+        return a
+    }
+    return b
+}
